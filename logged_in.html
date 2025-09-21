@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisis Connect – Disaster Response Platform</title>
+    <link rel="icon" type="image/png" href="Image/Crisis_Connect_Logo.PNG">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">
+            <img src="Image/Crisis_Connect_Logo.PNG" alt="Crisis Connect Logo" width="60">
+            <span>Crisis Connect</span>
+        </div>
+        <div class="nav-right">
+            <a href="Donate.html" class="get-started">Donate</a>
+        </div>
+    </header>
+
+    <!-- SLOGAN -->
+    <section class="hero">
+        <h1>Hello User!</h1>
+        <h1>Connect. Respond. <span>Rescue.</span></h1>
+        <p>Real-time disaster response coordination platform connecting victims, volunteers, and emergency responders
+            for faster, more effective disaster relief.</p>
+        <div class="hero-buttons">
+            <button class="red-btn">⚠ Report Emergency</button>
+            <button class="green-btn">🤝 Volunteer Now</button>
+            <button class="blue-btn">🗺 View Live Map</button>
+        </div>
+    </section>
+
+    <!-- HOTLINE -->
+    <div class="hotline">
+        <p>📞 <strong>24/7 Emergency Hotline: 999</strong></p>
+        <p>For immediate life-threatening emergencies, call 999 first</p>
+    </div>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stat-box">
+            <div class="stat-number" id="sos-count">23</div>
+            <div class="stat-sub">Active SOS Calls</div>
+            <div class="stat-extra">+5 today</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number" id="volunteers-count">1,247</div>
+            <div class="stat-sub">Active Volunteers</div>
+            <div class="stat-extra">+38 online</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number" id="disasters-count">156</div>
+            <div class="stat-sub">Disasters Responded</div>
+            <div class="stat-extra">This month</div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <h2>Built for Crisis Response</h2>
+        <p>Every feature designed with emergency situations in mind</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div style="font-size:2rem;">⚠</div>
+                <h3>Instant SOS</h3>
+                <p>One-tap emergency alerts with GPS location and photo/audio attachments.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size:2rem;">🗺</div>
+                <h3>Real-Time Map</h3>
+                <p>Live incident tracking with color-coded severity and response status.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-size:2rem;">🤝</div>
+                <h3>Volunteer Network</h3>
+                <p>Coordinate trained volunteers and resources for efficient disaster response.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>Crisis Connect</h3>
+                <p>Real-time disaster response coordination platform connecting victims, volunteers, and emergency
+                    responders.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Report Emergency</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#">Live Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <!-- <p>📞 24/7 Hotline: 999</p> -->
+                <p>📧 Email: crisisconnect999@gmail.com</p>
+                <p>© 2025 Crisis Connect</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Example JavaScript to animate counters
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.textContent = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        // animate counters when page loads
+        animateValue("sos-count", 0, 23, 2000);
+        animateValue("volunteers-count", 0, 1247, 2000);
+        animateValue("disasters-count", 0, 156, 2000);
+    </script>
+
+</body>
+
+</html>

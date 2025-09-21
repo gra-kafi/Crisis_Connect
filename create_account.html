@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account – Crisis Connect</title>
+  <link rel="stylesheet" href="sign_in.css">
+</head>
+
+<body>
+
+  <!-- back to home -->
+  <a href="index.html" class="back-link"><b>← Back to Home</b></a>
+
+  <!-- logo & title -->
+  <div class="logo-container">
+    <img src="Image/png_logo.png" alt="Crisis Connect Logo" class="logo">
+    <h1 class="title">Crisis Connect</h1>
+  </div>
+
+  <!-- emergency notice -->
+  <div class="alert">
+    <strong>Emergency?</strong> Call 999 immediately for life-threatening situations
+  </div>
+
+  <!-- Create account form -->
+  <div class="form-container">
+    <h2>Create Your Account</h2>
+    <p>Join Crisis Connect and start using the platform</p>
+
+    <form action="#" method="post">
+      <label>Email Address *</label>
+      <input type="email" placeholder="crisisconnect999@example.com" required>
+
+      <label>Phone Number *</label>
+      <input type="tel" placeholder="+880 1234567890" required>
+
+      <label>Create Password *</label>
+      <input type="password" id="password" placeholder="Create a secure password" required>
+
+      <label>Confirm Password *</label>
+      <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+
+      <button type="submit" class="submit-btn">Create Account</button>
+    </form>
+
+    <p class="switch-form">
+      Already have an account? <a href="sign_in.html">Sign In</a>
+    </p>
+  </div>
+
+  <!-- Security & privacy Box -->
+  <div class="security-box">
+    <h3>Your Security & Privacy</h3>
+    <ul>
+      <li>Your data is secure</li>
+      <li>Location shared only during emergencies</li>
+      <li>Account verification required for responders</li>
+      <li>24/7 monitoring for platform safety</li>
+    </ul>
+  </div>
+
+  <script>
+    // Basic password confirmation check
+    document.querySelector('form').addEventListener('submit', function (e) {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert('Passwords do not match. Please try again.');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

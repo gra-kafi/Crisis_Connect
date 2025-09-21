@@ -1,0 +1,140 @@
+/* Reset some defaults */
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f7fc;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Back link */
+.back-link {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Logo + Title */
+.logo-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.title {
+  font-size: 1.6rem;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+/* Alert box */
+.alert {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Form Container */
+.form-container {
+  max-width: 400px;
+  background: #fff;
+  padding: 25px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-container h2 {
+  margin: 0 0 5px;
+  font-size: 1.4rem;
+}
+
+.form-container p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.form-container label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.submit-btn:hover {
+  background: #16a34a;
+}
+
+.switch-form {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Security Box */
+.security-box {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #f0f7ff;
+  border: 1px solid #c7e0ff;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.security-box h3 {
+  margin-top: 0;
+  font-size: 15px;
+}
+
+.security-box ul {
+  padding-left: 20px;
+  text-align: left;
+  margin: 10px 0 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .form-container,
+  .security-box {
+    width: 100%;
+    padding: 15px;
+  }
+}
