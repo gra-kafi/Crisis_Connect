@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2025 at 04:24 PM
+-- Generation Time: Sep 22, 2025 at 04:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -306,7 +306,7 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `passwoed` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `role` varchar(10) DEFAULT NULL,
   `u_status` varchar(10) DEFAULT NULL,
@@ -642,7 +642,7 @@ ALTER TABLE `blood_donation`
 -- Constraints for table `blood_donor`
 --
 ALTER TABLE `blood_donor`
-  ADD CONSTRAINT `blood_donor_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `uesrs` (`user_id`);
+  ADD CONSTRAINT `blood_donor_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `blood_request`
