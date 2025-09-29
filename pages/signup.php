@@ -22,12 +22,15 @@
     <!-- White Card Form -->
     <div class="container">
         <div class="card">
-            <h2>Create Your Account</h2>
+            <h2>Create Account</h2>
             <p class="subtitle">Sign up to continue</p>
 
-            <form action="otp.php" method="GET">
-                <label>Email Address</label>
-                <input type="email" name="email" placeholder="you@gmail.com" required>
+            <form action="signupProcess.php" method="post">
+                <label>Name:</label>
+                <input type="txt" name="name" placeholder="Jhon Uddin Bob" required>
+                
+                <label>Email Address:</label>
+                <input type="email" name="email" placeholder="your@gmail.com" required>
 
                 <label>Phone Number</label>
                 <input type="tel" name="phone" placeholder="+880 1712345678" required>
