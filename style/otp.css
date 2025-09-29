@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #FFF1F2;
+}
+
+/* Header */
+.header {
+  background-color: #DC2626;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.brand {
+  font-family: 'Georgia', serif;
+}
+
+/* OTP Container (bigger size) */
+.otp-container {
+  background: #fff;
+  max-width: 550px;
+  /* increased from 400px */
+  margin: 60px auto;
+  /* more space from top */
+  padding: 50px 40px;
+  /* thicker padding */
+  border-radius: 20px;
+  /* rounder corners */
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.otp-container h2 {
+  margin-bottom: 15px;
+  font-size: 28px;
+  /* bigger heading */
+}
+
+.otp-container p {
+  font-size: 16px;
+  /* bigger text */
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.message {
+  color: #c62828;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* OTP Inputs */
+.otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  /* more spacing */
+  margin: 30px 0;
+}
+
+.otp-field {
+  width: 70px;
+  /* bigger input width */
+  height: 70px;
+  /* bigger input height */
+  text-align: center;
+  font-size: 28px;
+  /* larger font */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  font-weight: bold;
+}
+
+.otp-field:focus {
+  border-color: #c62828;
+}
+
+/* Timer + Resend */
+.timer {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.resend {
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.resend a {
+  color: blue;
+  text-decoration: underline;
+}
+
+/* Buttons */
+.verify-btn,
+.cancel-btn {
+  width: 90%;
+  padding: 16px;
+  /* larger button height */
+  margin: 10px auto;
+  border: none;
+  border-radius: 30px;
+  /* rounder */
+  font-size: 18px;
+  /* larger font */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.verify-btn {
+  background: #c62828;
+  color: #fff;
+}
+
+.cancel-btn {
+  background: #c62828;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.cancel-btn:hover,
+.verify-btn:hover {
+  opacity: 0.9;
+}
