@@ -1,3 +1,20 @@
+:root {
+  --primary: #213448;     
+  --secondary: #547792;   
+  --accent: #14B8A6;      /* Teal Green */
+  --highlight: #c8e5ef;   /* Golden Amber */
+  --background-dark: #ECEFCA;  /* Deep Navy */
+  --background-light: #fdffe7;
+  --surface: #1E293B;     /* Card/Panel Dark Blue */
+  --text-dark: #213448;   /* Light Gray for dark BG */
+  --text-light: #FFFFFF;  /* Pure White */
+  --redblood: #d33939;
+  --darkRed: #990000;
+  
+}
+
+
+
 /* General Reset */
 * {
     margin: 0;
@@ -8,21 +25,21 @@
 
 .menu-icon {
   font-size: 30px;          /* size of the dots */
-  color: #fff;              /* white like the top bar text */
+  color: var(--text-light);              /* white like the top bar text */
   cursor: pointer;
   margin-right: 15px;       /* space between icon and title */
 }
 
 
 body {
-    background: #fff;
-    color: #000;
+    background: var(--background-light);
+    color: var(--text-light);
 }
 
 /* Top Bar */
 .top-bar {
-  background: #d12222;
-  color: #fff;
+  background: var(--primary);
+  color: var(--text-light);
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
@@ -54,7 +71,7 @@ body {
   left: -200px;          /* hidden off-screen initially */
   width: 200px;
   height: 100%;          /* fill the height of .main-wrapper */
-  background-color: #f8bcbc;
+  background-color: vaRr(--primary);
   padding-top: 20px;
   transition: left 0.3s ease;
   z-index: 10;
@@ -65,12 +82,12 @@ body {
 .sidebar a {
   padding: 15px 20px;
   text-decoration: none;
-  color: #000;
+  color: var(--full-black);
   font-size: 18px;
 }
 
 .sidebar a:hover {
-  background: #f2a8a8;
+  background: var(--primary);
 }
 
 .sidebar.active {
@@ -86,11 +103,11 @@ body {
 /* Sidebar hidden by default */
 .sidebar {
   position: fixed;
-  top: 70px;                        /* header (65px) + 15px gap */
+  top: 68px;                        /* header (65px) + 15px gap */
   left: -200px;
-  width: 200px;
+  width: 150px;
   height: calc(100% - 360px);       /* 80px top + 80px bottom (footer 65px + 15px gap) */
-  background-color: #f8bcbc;
+  background-color: var(--primary);
   border-radius: 0px;              /* more visible rounded corners */
   transition: left 0.3s ease;
   z-index: 999;
@@ -103,12 +120,12 @@ body {
 .sidebar a {
   padding: 15px 20px;
   text-decoration: none;
-  color: #000;
+  color: var(--text-light);
   font-size: 18px;
 }
 
 .sidebar a:hover {
-  background: #f2a8a8; /* lighter hover color */
+  background: var(--secondary); /* lighter hover color */
 }
 
 /* When active */
@@ -119,7 +136,7 @@ body {
 /* Adjust top-bar menu-icon so it’s clickable */
 .menu-icon {
   font-size: 30px;
-  color: #fff;
+  color: var(--text-light);
   cursor: pointer;
   margin-right: 15px;
   user-select: none;
@@ -135,71 +152,106 @@ body {
 }
 
 /* Left Column */
-.post-box {
-    background: #f8bcbc;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.post-box textarea {
-    width: 100%;
-    height: 80px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    resize: none;
-    margin-bottom: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.file-upload {
-    margin-bottom: 10px;
-    /* space between file input and post button */
-}
-
-.file-upload input[type="file"] {
-    display: block;
-    /* ensures it takes full width */
-    margin-bottom: 10px;
-}
-
-.post-btn {
-    background: #d12222;
-    color: #fff;
-    border: none;
-    padding: 6px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    /* forces button to its own line */
-}
-
-
 .scrollable-box {
-    background: #f8bcbc;
-    padding: 20px;
+    background: var(--secondary);
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
     margin-top: 20px;
     border-radius: 20px;
 }
+.scrollable-box h3{
+  padding-bottom: 20px;
+}
+
 
 .scrollable-content {
-    background: #fff;
-    height: 150px;
+    background: var(--background-light);
+    height: 600px;
     overflow-y: scroll;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.post {
+    border: 1px solid var(--surface);
+    border-radius: 8px;
+    background: var(--background-dark);
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.date {
+    font-size: 13px;
+    color: var(--text-dark);
+}
+
+.post-content p {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+.post-image {
+   max-width: 100%;      /* scale down if too large */
+    height: auto;         /* keep aspect ratio */
+    display: block;       /* makes margin auto work */
+    margin: 10px auto;    /* centers block element */
+    border-radius: 6px;
+}
+
+
 /* Right Column */
-.weather,
-.current-disasters,
-.help-posts {
-    background: #f8bcbc;
+.warning{
+  color: var(--text-dark);
+  text-align: center;
+}
+.weather{
+   background: var(--secondary);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
+.current-disasters,
+.help-post {
+    background: var(--redblood);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  
+}
+.help-post:hover {
+    background-color: var(--darkRed);   /* color on hover */
+    cursor: pointer;             /* pointer effect on hover */
+}
+
 
 .current-disasters ul {
     list-style: none;
@@ -210,10 +262,55 @@ body {
     margin: 5px 0;
 }
 
+.post-box {
+  margin: 30px auto;
+  padding: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  background: var(--background-dark);
+  font-family: Arial, sans-serif;
+  color: var(--text-dark);
+}
+.post-box h2 {
+  text-align: left;
+}
+
+.post-box label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.post-box textarea {
+  width: 100%;
+  height: 80px;
+  padding: 8px;
+  resize: none;
+}
+
+.post-box input[type="file"] {
+  margin: 10px 0;
+  }
+
+.post-box button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+.post-box button:hover {
+  background: #45a049;
+  }
+
+
 /* Footer */
 .footer {
-    background: #d12222;
-    color: #fff;
+    background: var(--primary);
+    color: var(--background);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -234,7 +331,7 @@ body {
 }
 
 .footer ul li a {
-    color: #fff;
+    color: var(--background);
     text-decoration: none;
 }
 
@@ -255,7 +352,7 @@ body {
 }
 
 .current-disasters {
-    background: #f8bcbc;
+    background: var(--secondary);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -265,7 +362,7 @@ body {
 .current-disasters ul {
     list-style: none;
     padding-left: 0;
-    background: #fff;
+    background: var(--background);
     height: 150px;
     /* fixed height for scroll */
     overflow-y: scroll;

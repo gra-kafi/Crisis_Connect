@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,19 +18,30 @@
         <div class="menu-icon" onclick="toggleSidebar()">⋯</div>
         <h1>Crisis Connect</h1>
         <div class="icons">
-            <span class="mode">Mode</span>
+            <?php if (isset($_SESSION['user_id'])): ?>
+            <span> Signed in as</span>
+            <span class="mode">USER</span>
+            <?php endif; ?>
             <span class="bell">🔔</span>
+            <?php if (!isset($_SESSION['user_id'])): ?>
             <span class="user" onclick="window.location.href='pages/signin.php'">👤</span>
+            <?php else: ?>
+            <span class="user" onclick="window.location.href='pages/profile.php'">👤</span>
+            <?php endif; ?>
         </div>
     </header>
 
 
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
-
+        <?php if (isset($_SESSION['user_id'])): ?>
         <a href="#">Profile</a>
         <a href="#">Settings</a>
-        <a href="#">Logout</a>
+        <a href="pages/signoutProcess.php">Sign Out</a>
+        <?php else: ?>
+        <a href="pages/signin.php">Sign In</a>
+        <a href="Pages/signup.php">Sign Up</a>
+        <?php endif; ?>
     </div>
 
 
@@ -36,20 +50,32 @@
     <main class="container">
         <!-- Left Column -->
         <section class="left-column">
-            <div class="post-box">
-                <textarea placeholder="Share an update or request help ..."></textarea>
-                <div class="file-upload">
-                    <input type="file" id="fileInput">
-                </div>
-                <button class="post-btn">Post</button>
-
-            </div>
-
+            
             <div class="scrollable-box">
                 <h3>View post</h3>
                 <div class="scrollable-content">
-                    <!-- Posts go here -->
-                </div>
+                    <?php
+                    include 'dbConnect.php';
+                    $queery = "SELECT name,posts.created_at,content,img_url from posts,users WHERE posts.soft_delete = FALSE AND posts.created_by = users.id ORDER BY created_at DESC;";
+                    $result = mysqli_query($connect, $queery);
+                    ?>
+                    <?php while($row = $result->fetch_assoc()): ?>
+                    <div class="post">
+                        <div class="post-header">
+                            <img class="profile-pic" src="image/logos/profile-user.png" alt="Profile">
+                            <div class="post-info">
+                                <span class="author"><?= htmlspecialchars($row['name']) ?></span>
+                                <span class="date"><?= htmlspecialchars($row['created_at']) ?></span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <p><?= nl2br(htmlspecialchars($row['content'])) ?></p>
+                             <?php if (!($row['img_url']=="noImage")): ?>
+                            <img class="post-image" src="<?= htmlspecialchars($row['img_url']) ?>" alt="Post Image">
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <?php endwhile; ?>
             </div>
         </section>
 
@@ -68,12 +94,26 @@
                 </ul>
             </div>
 
-            <div class="help-posts">
-                <h3>Help Posts</h3>
-                <div class="scrollable-content">
-                    View scrollable post
-                </div>
+            <div class="help-post">
+                <h3>Click for Help Post</h3>
             </div>
+            <?php if (isset($_SESSION['user_id'])): ?>
+            <div class="post-box">
+                <h2>Create Post</h2>
+                <form action="pages/upload_post.php" method="POST" enctype="multipart/form-data">
+
+                <textarea id="caption" name="caption" required placeholder="Write something..."></textarea>
+
+                <label for="image">Choose an image (optional)</label>
+                <input type="file" id="image" name="image" accept="image/*">
+
+                <button type="submit">Post</button>
+                </form>
+            </div>
+            <?php else: ?>
+            <p class="warning">You must be Sign in to create general a post.</p>
+            <?php endif; ?>
+
         </section>
     </main>
 
