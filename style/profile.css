@@ -1,0 +1,133 @@
+:root {
+  --primary: #213448;     
+  --secondary: #547792;   
+  --accent: #fbd472;      /* Teal Green */
+  --highlight: #c8e5ef;   /* Golden Amber */
+  --background-dark: #ECEFCA;  /* Deep Navy */
+  --background-light: #fdffe7;
+  --surface: #1E293B;     /* Card/Panel Dark Blue */
+  --text-dark: #213448;   /* Light Gray for dark BG */
+  --text-light: #FFFFFF;  /* Pure White */
+  
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+/* Global reset */
+body {
+    background: var(--background-light);
+    color: var(--text-dark);
+}
+
+.top-bar {
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 15px 30px;
+    height: 67px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.top-bar span {
+  flex: 1;  
+  font-size: 30px;              /* pushes the title to center-left */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.card {
+    background: var(--background-dark);
+    max-width: 420px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    border: 2px solid var(--surface);
+    text-align: center;
+}
+.card img{
+    width: 200px;
+    align-self: center;
+}
+
+/* Headings */
+.card h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    padding: 10px;
+}
+.card p{
+    padding: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.profile-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.profile-actions a {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.profile-actions a:hover {
+    background-color: var(--primary);
+}
+
+
+/* Footer */
+.footer {
+    background: var(--primary);
+    color: var(--text-light);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    margin-top: 50px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer h2,
+.footer h3 {
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 5px;
+}
+
+.footer ul li a {
+    color: var(--background);
+    text-decoration: none;
+}
+
+.footer-right p {
+    margin-bottom: 5px;
+}

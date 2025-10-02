@@ -35,8 +35,8 @@ session_start()
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
         <?php if (isset($_SESSION['user_id'])): ?>
-        <a href="#">Profile</a>
-        <a href="#">Settings</a>
+        <a href="pages/profile.php">Profile</a>
+        <a href="pages/myPosts.php">My posts</a>
         <a href="pages/signoutProcess.php">Sign Out</a>
         <?php else: ?>
         <a href="pages/signin.php">Sign In</a>

@@ -40,14 +40,17 @@
     $sql_phone = "SELECT id FROM users WHERE phone = '$phone' AND soft_delete = FALSE";
     $result = mysqli_query($connect, $sql_phone);
     $row = mysqli_fetch_assoc($result);
-    $newUserId = $row['id'];
+    $user_id = $row['id'];
 
     $sql_update = "UPDATE users 
-    SET created_by = '$newUserId', updated_by = '$newUserId' 
-    WHERE id = '$newUserId'";
+    SET created_by = '$user_id', updated_by = '$user_id' 
+    WHERE id = '$user_id'";
     mysqli_query($connect, $sql_update);
 
-    $_SESSION['user_id'] = $id; 
+    $sql_bloodGroup = "INSERT INTO userbloodgroup (id, bloodgroup, created_by, updated_by) VALUES ('$user_id', '$bgroup', '$user_id', '$user_id')";
+    mysqli_query($connect, $sql_bloodGroup);
+
+    $_SESSION['user_id'] = $user_id; 
     $_SESSION['user_name'] = $name; 
     $_SESSION['logged_in'] = true;
 
