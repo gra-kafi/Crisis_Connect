@@ -5,49 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-in</title>
-    <link rel="stylesheet" href="../style/signinNsignup.css">
+    <link rel="stylesheet" href="../style/myposts.css">
 </head>
 
 <body>
     <!-- Top Navbar -->
-    <!-- <header class="top-bar">
+    <header class="top-bar">
         <div>
             <span>Crisis Connect</span>
         </div>
-    </header> -->
-
-    <header class="top-bar">
-        <div>
-            <img src="../image/logos/previous.png" width="35px" onclick="window.location.href='../index.php'">
-            <h1>Crisis Connect</h1>
-        </div>
     </header>
 
-
-    <!-- White Card Form -->
     <div class="container">
-        <div class="card">
-            <h2>Sign-in</h2>
-            <p class="subtitle">Sign-in to continue</p>
-
-            <form action="signinProcess.php" method="post">
-                
-                <label>Phone Number</label>
-                <input type="text" name="phone" placeholder="+880 1712345678" required>
-
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Create a secure password" required>
-
-
-                <button type="submit" class="btn">Login</button>
-            </form>
-
-
-            <p class="link">
-                Don't have an account? <a href="signup.php">Sign up</a>
-            </p>
-        </div>
+        <h1>My Posts</h1>
     </div>
+
     <footer class="footer">
         <div class="footer-left">
             <h2>Crisis Connect</h2>

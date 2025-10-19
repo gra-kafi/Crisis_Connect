@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-in</title>
+    <title>Donotion</title>
     <link rel="stylesheet" href="../style/signinNsignup.css">
 </head>
 
@@ -27,25 +27,40 @@
     <!-- White Card Form -->
     <div class="container">
         <div class="card">
-            <h2>Sign-in</h2>
-            <p class="subtitle">Sign-in to continue</p>
+            <h2>Donotion</h2>
+            <p class="subtitle">Scan the QR code to Donate</p>
+            <img src="../Image/logos/QR.jpeg" style="width:100%; border-radius:10px">
 
-            <form action="signinProcess.php" method="post">
+            <form action="donotionProcess.php" method="post">
                 
-                <label>Phone Number</label>
-                <input type="text" name="phone" placeholder="+880 1712345678" required>
+                <label>Amount</label>
+                <input type="number" name="amount"required>
 
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Create a secure password" required>
+                <label>Transaction ID(TrxID)</label>
+                <input type="text" name="TrxID" required>
+
+                <label>Select Disaster</label>
+                <select name="disaster" required>
+                <option value="NULL">Select Disaster</option>
+                <?php
+                include '../dbConnect.php';
+                $sql_query = "SELECT disaster_name,disaster_id FROM disasters WHERE ended = FALSE";
+                $result = mysqli_query($connect,$sql_query);
+                
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value=".$row['disaster_id'].">".$row['disaster_name']."</option>";
+                    }
+                } else {
+                    echo "<option value= NULL > others </option>";
+                }
+                ?>
+            </select>
 
 
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn">Donate</button>
             </form>
 
-
-            <p class="link">
-                Don't have an account? <a href="signup.php">Sign up</a>
-            </p>
         </div>
     </div>
     <footer class="footer">

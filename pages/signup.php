@@ -10,9 +10,16 @@
 
 <body>
     <!-- Top Navbar -->
-    <header class="top-bar">
+    <!-- <header class="top-bar">
         <div>
             <span class="brand">Crisis Connect</span>
+        </div>
+    </header> -->
+
+    <header class="top-bar">
+        <div>
+            <img src="../image/logos/previous.png" width="35px" onclick="window.location.href='../index.php'">
+            <h1>Crisis Connect</h1>
         </div>
     </header>
 

@@ -18,9 +18,7 @@
     font-family: 'Georgia', serif;
 }
 
-
-
-
+/* Global reset */
 body {
     background: var(--background-light);
     color: var(--text-dark);
@@ -29,82 +27,33 @@ body {
 .top-bar {
     background: var(--primary);
     color: var(--text-light);
-    padding-left: 15px;
+    padding: 15px 30px;
     height: 67px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    display: flex;              /* put image + h1 in same row */
     
-}
-.top-bar h1 {
-    display: inline-block;
-    margin: 0 0 0 10px;         /* gap between img & text */
-    line-height: 1;             /* prevent extra vertical space */
-    position: relative;
-    top: -2px;                 /* pushes the title to center-left */
 }
 .top-bar span {
   flex: 1;  
   font-size: 30px;              /* pushes the title to center-left */
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-.card {
+.container{
+    width: 50%;
+    height: 650px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 30px;
     background: var(--background-dark);
-    max-width: 420px;
-    width: 100%;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    border: 2px solid var(--surface);
+    color: var(--secondary);
     text-align: center;
 }
-.card img{
-    width: 200px;
-    align-self: center;
-}
-
-/* Headings */
-.card h2 {
-    font-size: 24px;
-    margin: 10px 0;
+.container h1{
+    color: var(--surface);
+    text-align: center;
     padding: 10px;
 }
-.card p{
-    padding: 5px;
-}
-
-.subtitle {
-    font-size: 14px;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-}
-
-.profile-actions {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.profile-actions a {
-    display: inline-block;
-    background-color: var(--secondary);
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 6px;
-}
-
-.profile-actions a:hover {
-    background-color: var(--primary);
-}
-
 
 /* Footer */
 .footer {

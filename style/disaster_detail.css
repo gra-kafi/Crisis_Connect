@@ -1,0 +1,208 @@
+:root {
+  --primary: #213448;     
+  --secondary: #547792;   
+  --accent: #fbd472;      /* Teal Green */
+  --highlight: #c8e5ef;   /* Golden Amber */
+  --background-dark: #ECEFCA;  /* Deep Navy */
+  --background-light: #fdffe7;
+  --surface: #1E293B;     /* Card/Panel Dark Blue */
+  --text-dark: #213448;   /* Light Gray for dark BG */
+  --text-light: #FFFFFF;  /* Pure White */
+  --red: #dc3545;
+  --dark-red: #a71d2a; 
+  
+}
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--background-light);
+  margin: 0;
+  color: #333;
+}
+
+
+.top-bar {
+    background: var(--primary);
+    color: var(--text-light);
+    padding-left: 15px;
+    height: 67px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;              /* put image + h1 in same row */
+    
+}
+.top-bar h1 {
+    color: var(--text-light);
+    display: inline-block;
+    margin: 0 0 0 10px;         /* gap between img & text */
+    line-height: 1;             /* prevent extra vertical space */
+    position: relative;
+    top: -2px;                 /* pushes the title to center-left */
+}
+.top-bar span {
+  flex: 1;  
+  font-size: 30px;              /* pushes the title to center-left */
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #d9534f;
+}
+
+/* GRID LAYOUT */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Improved container layout */
+.container {              /* Inner spacing */
+    background-color: var(--background-light);  /* Soft, neutral background */
+    border-radius: 15px;        /* Rounded corners */
+    flex-wrap: wrap;
+    gap: 20px;                  /* Space between items inside container */
+}
+
+/* Optional: cards/divs inside the container */
+.container .card {
+    flex: 1 1 300px;             /* Responsive width */
+    background-color: var(--background-dark);   
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin: 10px;
+}
+
+
+/* Typography inside container */
+.container h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.container p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between; /* left and right */
+    align-items: center;            /* vertically center buttons */
+    margin: 10px 0;
+}
+
+.button-row form {
+    margin: 0; /* remove default form margins */
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* smooth hover effect */
+}
+
+/* Remove Areas button */
+.removeArea {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.removeArea:hover {
+    background-color: #e60000; /* darker red on hover */
+    transform: scale(1.05);     /* slight zoom effect */
+}
+
+/* Edit Areas button */
+.addArea {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.addArea:hover {
+    background-color: #3e8e41; /* darker green on hover */
+    transform: scale(1.05);    /* slight zoom effect */
+}
+
+.unions{
+  background: var(--background-light);
+  border-radius: 5px;
+  border: 1px solid var(--text-dark);
+  display: inline-flex;
+  padding: 5px;
+  margin: 5px;
+}
+
+
+
+/* Links: no underline */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.severity.minor { background: rgba(40, 167, 69, 0.8); }
+.severity.moderate { background: rgba(255, 193, 7, 0.8); }
+.severity.severe { background: rgba(253, 126, 20, 0.8); }
+.severity.critical { background: rgba(220, 53, 69, 0.8); }
+
+.meta {
+  font-size: 14px;
+  color: #666;
+}
+
+.footer {
+    background: var(--primary);
+    color: var(--text-light);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    margin-top: 50px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer h2,
+.footer h3 {
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 5px;
+}
+
+.footer ul li a {
+    color: var(--background);
+    text-decoration: none;
+}
+
+.footer-right p {
+    margin-bottom: 5px;
+}

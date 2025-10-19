@@ -18,15 +18,18 @@ session_start()
         <div class="menu-icon" onclick="toggleSidebar()">⋯</div>
         <h1>Crisis Connect</h1>
         <div class="icons">
-            <?php if (isset($_SESSION['user_id'])): ?>
-            <span> Signed in as</span>
-            <span class="mode">USER</span>
+            <?php if(isset($_SESSION['user_id'])): ?>
+            <img src="image/logos/donation.png" onclick="window.location.href='pages/donate.php'">
             <?php endif; ?>
-            <span class="bell">🔔</span>
+            <?php if (isset($_SESSION['user_id']) and isset($_SESSION['admin'])): ?>
+            <span class="mode">USER </span>
+            <img src="image/logos/swap.png" onclick="window.location.href='pages/admin.php'">
+            <?php endif; ?>
+            <img src="image/logos/bell.png">
             <?php if (!isset($_SESSION['user_id'])): ?>
-            <span class="user" onclick="window.location.href='pages/signin.php'">👤</span>
+            <img src="image/logos/swap_user.png" onclick="window.location.href='pages/signin.php'">
             <?php else: ?>
-            <span class="user" onclick="window.location.href='pages/profile.php'">👤</span>
+            <img src="image/logos/swap_user.png" onclick="window.location.href='pages/profile.php'">
             <?php endif; ?>
         </div>
     </header>
@@ -36,11 +39,13 @@ session_start()
     <div id="sidebar" class="sidebar">
         <?php if (isset($_SESSION['user_id'])): ?>
         <a href="pages/profile.php">Profile</a>
-        <a href="pages/myPosts.php">My posts</a>
         <a href="pages/signoutProcess.php">Sign Out</a>
+        <?php if(isset($_SESSION['volMem'])): ?>
+        <a href="pages/vTeamManage.php">Volunteer Team</a>
+        <?php endif;?>
         <?php else: ?>
         <a href="pages/signin.php">Sign In</a>
-        <a href="Pages/signup.php">Sign Up</a>
+        <a href="pages/signup.php">Sign Up</a>
         <?php endif; ?>
     </div>
 
@@ -88,14 +93,23 @@ session_start()
 
             <div class="current-disasters">
                 <h3>Current Disasters</h3>
-                <ul>
-                    <li>⚠ Flood in Northern Region</li>
-                    <li>⚠ Cyclone on East Coast</li>
-                </ul>
+                <?php
+                $queery = "SELECT disaster_name,disaster_id,type,level_name,started_at from disasters,disaster_type, severity_levels WHERE ended = FALSE AND disasters.type_id = disaster_type.type_id AND severity_level = level_id ORDER BY started_at DESC;";
+                $result = mysqli_query($connect, $queery);
+                ?>
+                <?php while($row = $result->fetch_assoc()): ?>
+                <div class="alert">⚠ <?= htmlspecialchars($row['level_name'])?> <?= htmlspecialchars($row['type'])?>: <?= htmlspecialchars($row['disaster_name'])?><br>Started on: <?= htmlspecialchars($row['started_at']) ?>
+                <form action="pages/disaster_detail.php" method="POST" style="text-align: right;">
+                <input type="hidden" name="disaster_id" value="<?php echo $row['disaster_id']; ?>">
+                <button type="submit" class="cool-btn">View Details</button>
+                </div>
+                </form>
+                <?php endwhile; ?>
+
             </div>
 
             <div class="help-post">
-                <h3>Click for Help Post</h3>
+                <h3 onclick="window.location.href='pages/create_helpPost.php'">Click for Help Post</h3>
             </div>
             <?php if (isset($_SESSION['user_id'])): ?>
             <div class="post-box">

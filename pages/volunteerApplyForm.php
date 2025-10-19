@@ -1,12 +1,5 @@
 <?php
-session_start();
-include '../dbConnect.php';
-
-$user_id = $_SESSION['user_id'];
-$query = "SELECT name, phone, email, dob, bloodGroup FROM users WHERE id = '$user_id'";
-
-$result = mysqli_query($connect, $query);
-$user   = mysqli_fetch_assoc($result);
+    $disaster_id = $_POST['disaster_id'];
 ?>
 
 <!DOCTYPE html>
@@ -15,16 +8,15 @@ $user   = mysqli_fetch_assoc($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user-profile</title>
-    <link rel="stylesheet" href="../style/profile.css">
+    <title>Join as Volunteer</title>
+    <link rel="stylesheet" href="../style/signinNsignup.css">
 </head>
 
 <body>
     <!-- Top Navbar -->
     <header class="top-bar">
         <div>
-            <img src="../image/logos/previous.png" width="35px" onclick="window.location.href='../index.php'">
-            <h1>Crisis Connect</h1>
+            <span>Crisis Connect</span>
         </div>
     </header>
 
@@ -32,17 +24,20 @@ $user   = mysqli_fetch_assoc($result);
     <!-- White Card Form -->
     <div class="container">
         <div class="card">
-            <img src="../Image/logos/profile-user.png" alt="Profile Picture" class="profile-pic">
-            <h2><?php echo $user['name']; ?></h2>
-            <div>
-                <p><strong>Phone Number:</strong> <?php echo $user['phone']; ?></p>
-                <p><strong>Email:</strong> <?php echo $user['email']; ?></p>
-                <p><strong>Blood Group:</strong><?php echo $user['bloodGroup']; ?></p>
-                <p><strong>Date of Birth:</strong> <?php echo $user['dob']; ?></p>
-            </div>
-            <div class="profile-actions">
-                <a href="update-profile.php" class="update-btn">Update Info</a>
-            </div>
+            <h2>Join As Volunteer</h2>
+
+            <form action="volunteerApplyProcess.php" method="post">
+                <label for="info">Info and Skills</label>
+                <textarea id="info" name="info" 
+                style="
+                height: 200px;
+                border-radius: 10px;
+                padding: 10px;
+                " required placeholder="Write about yourself, skills, and experiences..."></textarea>
+                <input type="hidden" name="disaster_id" value="<?php echo $disaster_id; ?>">
+                <button type="submit" class="btn">Submit</button>
+            </form>
+
         </div>
     </div>
     <footer class="footer">

@@ -28,8 +28,8 @@
 
     $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
-    $sql_insert = "INSERT INTO users (id, password, name, phone, email, dob, created_by, updated_by)
-                    VALUES (UUID(), '$hashed_password', '$name', '$phone', '$email', '$dob', NULL, NULL)";
+    $sql_insert = "INSERT INTO users (id, password, name, phone, email, dob, bloodGroup, created_by, updated_by)
+                    VALUES (UUID(), '$hashed_password', '$name', '$phone', '$email', '$dob', '$bgroup', NULL, NULL)";
 
     if (mysqli_query($connect, $sql_insert)) {
         echo "User created successfully!";
@@ -46,9 +46,6 @@
     SET created_by = '$user_id', updated_by = '$user_id' 
     WHERE id = '$user_id'";
     mysqli_query($connect, $sql_update);
-
-    $sql_bloodGroup = "INSERT INTO userbloodgroup (id, bloodgroup, created_by, updated_by) VALUES ('$user_id', '$bgroup', '$user_id', '$user_id')";
-    mysqli_query($connect, $sql_bloodGroup);
 
     $_SESSION['user_id'] = $user_id; 
     $_SESSION['user_name'] = $name; 
